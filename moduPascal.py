@@ -6,6 +6,7 @@ fyn = input('Filter? y/n: ')
 
 if fyn == 'y':
     f = int(input('Number to display:'))
+print('')
 
 linelist = []
 
@@ -37,7 +38,7 @@ def filter_line(line,fnum):
 if fyn == 'y':
     for a in range(n):
         linelist.append(makeline(a))
-    for b in range(0,len(linelist)):
+    for b in range(len(linelist)):
         linelist[b] = insertspaces(linelist[b])
         spaces = int(n - b - 1)
         print(' ' * spaces + filter_line(linelist[b],f))
@@ -48,4 +49,3 @@ elif fyn == 'n':
         print(' ' * spaces + insertspaces(makeline(a)))
 else:
     print('Sorry, try again')
-
