@@ -24,14 +24,24 @@ def filter_line(line,fnum):
             newline += '-'
     return newline
 
+def userinput_onlyint(inmsg):
+    isint = False
+    while not isint:
+        usrin = input(inmsg)
+        isint = True
+        for c in usrin: 
+            if c not in '0123456789': isint = False
+        if not isint: print('Please enter a number character')
+    return int(usrin)
+
 #User loop
 cont = ''
 while cont != 'q':
     #User input
     print('')
     print("This will print Pascal's triangle with modular arithmetic")
-    n = int(input('Number of iterations: '))
-    m = int(input('Modulus: '))
+    n = userinput_onlyint('Number of iterations: ')
+    m = userinput_onlyint('Modulus: ')
     fyn = input('Filter? y/n: ')
     while fyn not in 'yn':
         print('Sorry, try again')
@@ -52,4 +62,3 @@ while cont != 'q':
     
     print('')
     cont = input('Press q to quit, or any other key to continue ')
-
