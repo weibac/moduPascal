@@ -9,15 +9,12 @@ if fyn == 'y':
 
 linelist = []
 
-def makeline(vertic):
-    line = ''
-    if vertic == 0:
-        line = '1'
-    else:
-        line = '1'
-        for a in range(1,vertic):
-            line = line + str((int(linelist[vertic-1][a-1]) + int(linelist[vertic-1][a])) % m)
-        line = line + '1'
+def makeline(line_number):
+    line = '1'
+    if line_number != 0:
+        for a in range(1,line_number):
+            line += str((int(linelist[line_number-1][a-1]) + int(linelist[line_number-1][a])) % m)
+        line += '1'
     return line
 
 def insertspaces(line):
