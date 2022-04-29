@@ -20,16 +20,17 @@ def makeline(line_number):
 def insertspaces(line):
     newline =  '1'
     for a in range(len(line)-1):
-        newline =  newline + ' ' + line[a+1]
+        newline += ' ' + line[a+1]
     return newline
 
-def filter_line(line,f):
+def filter_line(line,fnum):
     newline = ''
+    fchar = str(fnum)
     for ch in line:
-        if ch == str(f) or ch == ' ':
-            newline = newline + ch
+        if ch == fchar or ch == ' ':
+            newline += ch
         else:
-            newline = newline + '-'
+            newline += '-'
     return newline
 
 
