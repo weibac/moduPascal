@@ -24,19 +24,24 @@ def filter_line(line,fnum):
             newline += '-'
     return newline
 
+#User loop
+cont = ''
+while cont != 'q':
+    #User input
+    print('')
+    print("This will print Pascal's triangle with modular arithmetic")
+    n = int(input('Number of iterations: '))
+    m = int(input('Modulus: '))
+    fyn = input('Filter? y/n: ')
+    while fyn not in 'yn':
+        print('Sorry, try again')
+        fyn = input('Filter? y/n: ')
+    if fyn == 'y':
+        f = int(input('Number to display:'))
+    print('')
 
-#User input
-print('')
-print("This will print Pascal's triangle with modular arithmetic")
-n = int(input('Number of iterations: '))
-m = int(input('Modulus: '))
-fyn = input('Filter? y/n: ')
-if fyn == 'y':
-    f = int(input('Number to display:'))
-print('')
-
-#Main loop
-if fyn in 'yn':
+    #Triangle loop
+    linelist = []
     for a in range(n):
         linelist.append(makeline(a))
         spaces = int(n - a - 1)
@@ -44,5 +49,7 @@ if fyn in 'yn':
             print(' ' * spaces + insertspaces(makeline(a)))
         else:
             print(' ' * spaces + filter_line(insertspaces(makeline(a)),f))
-else:
-    print('Sorry, try again')
+    
+    print('')
+    cont = input('Press q to quit, or any other key to continue ')
+
