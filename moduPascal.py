@@ -1,3 +1,5 @@
+from os import get_terminal_size
+
 linelist = []
 
 def makeline(line_number):
@@ -40,7 +42,11 @@ while cont != 'q':
     #User input
     print('')
     print("This will print Pascal's triangle with modular arithmetic")
-    n = userinput_onlyint('Number of iterations: ')
+    n = userinput_onlyint('Number of iterations (press 0 to adjust to your terminal window size): ')
+    if n == 0: #Adjusts both vertically and horizontally. TODO: add separate horizontal and vertical adjustment
+        size = get_terminal_size()
+        for a in range(size.lines - 1):
+            if size.columns >= a*2 - 1: n = a
     m = userinput_onlyint('Modulus: ')
     fyn = input('Filter? y/n: ')
     while fyn not in 'yn':
