@@ -3,7 +3,7 @@ from os import get_terminal_size
 line_list = []
 
 
-def makeline(line_number):
+def make_line(line_number):
     line = '1'
     if line_number != 0:
         for a in range(1, line_number):
@@ -15,7 +15,7 @@ def makeline(line_number):
     return line
 
 
-def insertspaces(line):
+def insert_spaces(line):
     newline = '1'
     for a in range(len(line)-1):
         newline += ' ' + line[a + 1]
@@ -70,12 +70,12 @@ while cont != 'q':
     # Triangle loop
     line_list = []
     for a in range(n):
-        line_list.append(makeline(a))
+        line_list.append(make_line(a))
         spaces = int(n - a - 1)
         if fyn == 'n':
-            print(' ' * spaces + insertspaces(makeline(a)))
+            print(' ' * spaces + insert_spaces(make_line(a)))
         else:
-            print(' ' * spaces + filter_line(insertspaces(makeline(a)), f))
+            print(' ' * spaces + filter_line(insert_spaces(make_line(a)), f))
 
     print('')
     cont = input('Press q to quit, or any other key to continue ')
